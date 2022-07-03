@@ -21,7 +21,7 @@ ${OBJ}: config.h config.mk
 
 config.h:
 	cp config.def.h $@
-	[ -f config.h.patch ] && patch config.h config.def.h
+	[ -f config.h.patch ] && patch config.h config.h.patch
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
