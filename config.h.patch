@@ -10,17 +10,17 @@
 < 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 ---
 > 	[SchemeSel]  = { col_gray4, col_orange,  col_orange  },
-61c62
+63c64
 < static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 ---
 > static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
-66c67
+68c69
 < 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 ---
 > 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-81d81
+85d85
 < 	{ MODKEY,                       XK_space,  setlayout,      {0} },
-85,88c85,88
+89,92c89,92
 < 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 < 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 < 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
