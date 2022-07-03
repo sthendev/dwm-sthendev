@@ -14,7 +14,13 @@
 < static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 ---
 > static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
-85,88c86,89
+66c67
+< 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+---
+> 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
+81d81
+< 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+85,88c85,88
 < 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 < 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 < 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
