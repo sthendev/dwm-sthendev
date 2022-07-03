@@ -19,9 +19,9 @@ options:
 
 ${OBJ}: config.h config.mk
 
-config.h: config.h.patch
+config.h:
 	cp config.def.h $@
-	patch config.h config.def.h
+	[ -f config.h.patch ] && patch config.h config.def.h
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
