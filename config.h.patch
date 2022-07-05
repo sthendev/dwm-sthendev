@@ -22,9 +22,9 @@
 < 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 ---
 > 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-90d90
+92d92
 < 	{ MODKEY,                       XK_space,  setlayout,      {0} },
-94,97c94,97
+96,99c96,99
 < 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 < 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 < 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
