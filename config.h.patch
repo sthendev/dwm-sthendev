@@ -1,30 +1,30 @@
-9,10c9,10
+10,11c10,11
 < static const char *fonts[]          = { "monospace:size=10" };
 < static const char dmenufont[]       = "monospace:size=10";
 ---
 > static const char *fonts[]          = { "Hack:size=12" };
 > static const char dmenufont[]       = "Hack:size=12";
-15a16
+16a17
 > static const char col_orange[]      = "#d16500";
-19c20
+20c21
 < 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 ---
 > 	[SchemeSel]  = { col_gray4, col_orange,  col_orange  },
-43c44
+44c45
 <         0, 1
 ---
 >         0, 4, 4
-68c69
+69c70
 < static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 ---
 > static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
-73c74
+74c75
 < 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 ---
 > 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-92d92
+93d93
 < 	{ MODKEY,                       XK_space,  setlayout,      {0} },
-96,99c96,99
+97,100c97,100
 < 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 < 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 < 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
@@ -34,7 +34,7 @@
 > 	{ MODKEY,                       XK_period, focusmon,       {.i = -1 } },
 > 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = +1 } },
 > 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = -1 } },
-109,110c109,110
+110,111c110,111
 < 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 < 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 ---
