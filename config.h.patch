@@ -1,26 +1,26 @@
-10,11c10,11
+11,12c11,12
 < static const char *fonts[]          = { "monospace:size=10" };
 < static const char dmenufont[]       = "monospace:size=10";
 ---
 > static const char *fonts[]          = { "Hack:size=12" };
 > static const char dmenufont[]       = "Hack:size=12";
-16a17
+17a18
 > static const char col_orange[]      = "#d16500";
-20c21
+21c22
 < 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 ---
 > 	[SchemeSel]  = { col_gray4, col_orange,  col_orange  },
-44c45
+45c46
 <         0, 1
 ---
 >         0, 3, 3
-52d52
+53d53
 < 	{ "TTT",      bstack },
-57c57
+58c58
 < #define MODKEY Mod1Mask
 ---
 > #define MODKEY Mod4Mask
-60,63c60,64
+61,64c61,64
 < 	{1, {{MODKEY, KEY}},                                view,           {.ui = 1 << TAG} },	\
 < 	{1, {{MODKEY|ControlMask, KEY}},                    toggleview,     {.ui = 1 << TAG} }, \
 < 	{1, {{MODKEY|ShiftMask, KEY}},                      tag,            {.ui = 1 << TAG} }, \
@@ -30,49 +30,70 @@
 >       {1, {{MODKEY|ControlMask, KEY}},                    toggleview,     {.ui = 1 << TAG} }, \
 >       {1, {{MODKEY|ShiftMask, KEY}},                      tag,            {.ui = 1 << TAG} }, \
 >       {1, {{MODKEY|ControlMask|ShiftMask, KEY}},          toggletag,      {.ui = 1 << TAG} },
+66,67c66,68
+< /* helper for spawning shell commands in the pre dwm-5.0 fashion */
+< #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+---
 > 
-70c71
+> /* helper for spawning shell commands */
+> #define SHCMD(...) { .v = (const char*[]){ __VA_ARGS__, NULL } }
+71c72
 < static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 ---
 > static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_orange, "-sf", col_gray4, NULL };
-77c78
+78c79
 <         1, { {MODKEY, XK_p} },
 ---
 >         1, { {MODKEY, XK_space} },                      
-81c82
+82c83
 <         1, { {MODKEY|ShiftMask, XK_Return} },
 ---
 >         2, { {MODKEY, XK_w}, {MODKEY, XK_t} },
-97,104d97
+91c92
+<         focusstack, { .i= +1 }
+---
+>         focusstack, { .i = +1 }
+95,103c96
+<         focusstack, { .i= -1 }
+<     },
+<     {
 <         1, { {MODKEY, XK_i} },
 <         incnmaster, { .i= +1 }
 <     },
 <     {
 <         1, { {MODKEY, XK_d} },
 <         incnmaster, { .i= -1 }
-<     },
-<     {
-129c122
+---
+>         focusstack, { .i = -1 }
+107c100
+<         setmfact, { .f= -0.05 }
+---
+>         setmfact, { .f = -0.05 }
+111c104
+<         setmfact, { .f= +0.05 }
+---
+>         setmfact, { .f = +0.05 }
+130c123
 <         1, { {MODKEY|ShiftMask, XK_c} },
 ---
 >         2, { {MODKEY, XK_w}, {MODKEY, XK_w} },
-133c126
+134c127
 <         1, { {MODKEY, XK_t} },
 ---
 >         3, { {MODKEY, XK_w}, {MODKEY, XK_l}, {MODKEY, XK_t} },
-137c130
+138c131
 <         1, { {MODKEY, XK_f} },
 ---
 >         3, { {MODKEY, XK_w}, {MODKEY, XK_l}, {MODKEY, XK_f} },
-141c134
+142c135
 <         1, { {MODKEY, XK_m} },
 ---
 >         3, { {MODKEY, XK_w}, {MODKEY, XK_l}, {MODKEY, XK_m} },
-145c138
+146c139
 <         1, { {MODKEY, XK_u} },
 ---
 >         3, { {MODKEY, XK_w}, {MODKEY, XK_l}, {MODKEY, XK_b} },
-149,168d141
+150,169d142
 <         1, { {MODKEY, XK_o} },
 <         setlayout, { .v = &layouts[4] }
 <     },
@@ -93,32 +114,36 @@
 <         tag, { .ui = ~0 }
 <     },
 <     {
-170c143
+171c144
 <         focusmon, { .i = -1 }
 ---
 >         focusmon, { .i = +1 }
-174c147
+175c148
 <         focusmon, { .i = +1 }
 ---
 >         focusmon, { .i = -1 }
-178c151
+179c152
 <         tagmon, { .i = -1 }
 ---
 >         tagmon, { .i = +1 }
-182c155
+183c156
 <         tagmon, { .i = +1 }
 ---
 >         tagmon, { .i = -1 }
-194,198c167
+195,196c168,169
 <         1, { {MODKEY|ShiftMask, XK_q} },
 <         quit, {0}
-<     },
-<     {
-<         1, { {MODKEY|ControlMask|ShiftMask, XK_q} },
 ---
 >         2, { {MODKEY, XK_w}, {MODKEY, XK_r} },
-200a170,173
->     {
+>         quit, {1}
+199,200c172,173
+<         1, { {MODKEY|ControlMask|ShiftMask, XK_q} },
+<         quit, {1}
+---
 >         2, { {MODKEY, XK_w}, {MODKEY, XK_q} },
 >         quit, {0}
->     }, 
+201a175,178
+> 	{
+> 		2, { {MODKEY, XK_s}, {MODKEY, XK_l} },
+> 		spawn, SHCMD("slock")
+> 	},
